@@ -15,18 +15,18 @@ public abstract class Product {
     private final BigDecimal price;
     private Rating rating;
 
-    public Product() {
+    Product() {
         this(0, "no name", BigDecimal.ZERO);
     }
 
-    public Product(int id, String name, BigDecimal price, Rating rating) {
+    Product(int id, String name, BigDecimal price, Rating rating) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.rating = rating;
     }
 
-    public Product(int id, String name, BigDecimal price) {
+    Product(int id, String name, BigDecimal price) {
         this(id, name, price, NOT_RATED);
     }
 
@@ -64,6 +64,7 @@ public abstract class Product {
                 ", price=" + price +
                 ", discount=" + getDiscount() +
                 ", rating=" + rating +
+                ", bestBefore=" + getBestBefore() +
                 '}';
     }
 

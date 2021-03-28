@@ -8,3 +8,5 @@ labs/pm/data/Food.java
  labs.pm.data.Food
 labs/pm/data/Drink.java
  labs.pm.data.Drink
+labs/pm/data/ProductManager.java
+ labs.pm.data.ProductManager

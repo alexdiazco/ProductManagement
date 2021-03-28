@@ -1,0 +1,10 @@
+labs/pm/data/Rating.java
+ labs.pm.data.Rating
+labs/pm/data/Product.java
+ labs.pm.data.Product
+labs.pm.app/Shop.java
+ labs.pm.app.Shop
+labs/pm/data/Food.java
+ labs.pm.data.Food
+labs/pm/data/Drink.java
+ labs.pm.data.Drink

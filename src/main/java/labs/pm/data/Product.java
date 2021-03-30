@@ -46,6 +46,7 @@ public abstract class Product implements Rateable<Product> {
         return price.multiply(DISCOUNT_RATE).setScale(2, RoundingMode.HALF_UP);
     }
 
+    @Override
     public Rating getRating() {
         return rating;
     }

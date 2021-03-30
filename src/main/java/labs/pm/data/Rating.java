@@ -18,4 +18,8 @@ public enum Rating {
     public String getRating(){
         return stars;
     }
+
+    public String getStars() {
+        return stars;
+    }
 }

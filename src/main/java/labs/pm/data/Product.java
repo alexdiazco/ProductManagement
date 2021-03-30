@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 import static labs.pm.data.Rating.*;
 
-public abstract class Product {
+public abstract class Product implements Rateable<Product> {
 
     public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
 
@@ -50,8 +50,6 @@ public abstract class Product {
         return rating;
     }
 
-    public abstract Product applyRating(Rating newRating);
-
     public LocalDate getBestBefore() {
         return LocalDate.now();
     }
@@ -67,7 +65,6 @@ public abstract class Product {
                 ", bestBefore=" + getBestBefore() +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {

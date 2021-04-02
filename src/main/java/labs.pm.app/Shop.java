@@ -3,6 +3,7 @@ package labs.pm.app;
 import labs.pm.data.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Locale;
 
 public class Shop {
@@ -11,44 +12,44 @@ public class Shop {
         ProductManager pm = new ProductManager(Locale.US);
 
         Product p1 = pm.CreateProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        pm.printProductReport(p1);
-        p1 = pm.reviewProduct(p1,Rating.FOUR_STAR,"Nice hot cup of tea");
-        p1 = pm.reviewProduct(p1,Rating.TWO_STAR,"oK");
-        p1 = pm.reviewProduct(p1,Rating.FOUR_STAR,"hot cup of tea");
-        p1 = pm.reviewProduct(p1,Rating.FOUR_STAR,"Nice hot");
-        p1 = pm.reviewProduct(p1,Rating.THREE_STAR," of tea");
-        p1 = pm.reviewProduct(p1,Rating.FIVE_STAR,"Nice hot cup ");
-        pm.printProductReport(p1);
+        pm.printProductReport(101);
+        pm.reviewProduct(101,Rating.FOUR_STAR,"Nice hot cup of tea");
+        pm.reviewProduct(101,Rating.TWO_STAR,"oK");
+        pm.reviewProduct(101,Rating.FOUR_STAR,"hot cup of tea");
+        pm.reviewProduct(101,Rating.FOUR_STAR,"Nice hot");
+        pm.reviewProduct(101,Rating.THREE_STAR," of tea");
+        pm.reviewProduct(101,Rating.FIVE_STAR,"Nice hot cup ");
+        pm.printProductReport(101);
 
         Product p2 = pm.CreateProduct(102,"Coffee", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        p2 = pm.reviewProduct(p2,Rating.THREE_STAR," Coffee ");
-        p2 = pm.reviewProduct(p2,Rating.ONE_STAR," where is");
-        p2 = pm.reviewProduct(p2,Rating.FIVE_STAR,"It's perfect ");
-        pm.printProductReport(p2);
+        pm.reviewProduct(102,Rating.THREE_STAR," Coffee ");
+        pm.reviewProduct(102,Rating.ONE_STAR," where is");
+        pm.reviewProduct(102,Rating.FIVE_STAR,"It's perfect ");
+        pm.printProductReport(102);
 
-        Product p3 = pm.CreateProduct(102,"Cake", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        p3 = pm.reviewProduct(p3,Rating.THREE_STAR," Cake ");
-        p3 = pm.reviewProduct(p3,Rating.ONE_STAR," where is");
-        p3 = pm.reviewProduct(p3,Rating.FIVE_STAR,"It's perfect ");
-        pm.printProductReport(p3);
+        Product p3 = pm.CreateProduct(103,"Cake", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+        pm.reviewProduct(103,Rating.THREE_STAR," Cake ");
+        pm.reviewProduct(103,Rating.ONE_STAR," where is");
+        pm.reviewProduct(103,Rating.FIVE_STAR,"It's perfect ");
+        pm.printProductReport(103);
 
-        Product p4 = pm.CreateProduct(102,"Cookie", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        p4 = pm.reviewProduct(p4,Rating.THREE_STAR," Cookie ");
-        p4 = pm.reviewProduct(p4,Rating.ONE_STAR," where is");
-        p4 = pm.reviewProduct(p4,Rating.FIVE_STAR,"It's perfect ");
-        pm.printProductReport(p4);
+        Product p4 = pm.CreateProduct(104,"Cookie", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+        pm.reviewProduct(104,Rating.THREE_STAR," Cookie ");
+        pm.reviewProduct(104,Rating.ONE_STAR," where is");
+        pm.reviewProduct(104,Rating.FIVE_STAR,"It's perfect ");
+        pm.printProductReport(104);
 
-        Product p5 = pm.CreateProduct(102,"Hot Chocolate", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        p5 = pm.reviewProduct(p5,Rating.THREE_STAR," Hot ch ");
-        p5 = pm.reviewProduct(p5,Rating.ONE_STAR," where is");
-        p5 = pm.reviewProduct(p5,Rating.FIVE_STAR,"It's perfect ");
-        pm.printProductReport(p5);
+        Product p5 = pm.CreateProduct(105,"Hot Chocolate", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+        pm.reviewProduct(105,Rating.THREE_STAR," Hot ch ");
+        pm.reviewProduct(105,Rating.ONE_STAR," where is");
+        pm.reviewProduct(105,Rating.FIVE_STAR,"It's perfect ");
+        pm.printProductReport(105);
 
-        Product p6 = pm.CreateProduct(102,"Chocolate", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        p6 = pm.reviewProduct(p6,Rating.THREE_STAR," Chocolate ");
-        p6 = pm.reviewProduct(p6,Rating.ONE_STAR," where is");
-        p6 = pm.reviewProduct(p6,Rating.FIVE_STAR,"It's perfect ");
-        pm.printProductReport(p6);
+        Product p6 = pm.CreateProduct(106,"Chocolate", BigDecimal.valueOf(1.99), Rating.NOT_RATED, LocalDate.now().plusDays(3));
+        pm.reviewProduct(106,Rating.THREE_STAR," Chocolate ");
+        pm.reviewProduct(106,Rating.ONE_STAR," where is");
+        pm.reviewProduct(106,Rating.FIVE_STAR,"It's perfect ");
+        pm.printProductReport(106);
 
      }
 }

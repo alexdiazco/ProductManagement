@@ -39,11 +39,15 @@ public class ProductManager {
         return product;
     }
 
+    public Product reviewProduct(int productId, Rating rating, String comments) {
+      return reviewProduct(findProduct(productId),rating,comments);
+    }
+
     public Product reviewProduct(Product product, Rating rating, String comments) {
 
         List<Review> reviews = products.get(product);
-        products.remove(product,reviews);
-        reviews.add(new Review(rating,comments));
+        products.remove(product, reviews);
+        reviews.add(new Review(rating, comments));
 
         int sum = 0;
         for (Review review : reviews) {
@@ -51,10 +55,25 @@ public class ProductManager {
         }
 
         product = product.applyRating(Rateable.convert(Math.round((float) sum / reviews.size())));
-        products.put(product,reviews);
+        products.put(product, reviews);
         return product;
     }
 
+    public Product findProduct(int id){
+
+        Product result = null;
+        for(Product product : products.keySet()){
+            if(product.getId() == id){
+                result = product;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public void printProductReport(int productId ){
+        printProductReport(findProduct(productId));
+    }
     public void printProductReport(Product product) {
 
         List<Review> reviews = products.get(product);
@@ -65,6 +84,7 @@ public class ProductManager {
                 product.getRating().getStars(),
                 dateFormat.format(product.getBestBefore())));
         txt.append('\n');
+        Collections.sort(reviews);
         for (Review review : reviews) {
             txt.append(MessageFormat.format(
                     resources.getString("review"),

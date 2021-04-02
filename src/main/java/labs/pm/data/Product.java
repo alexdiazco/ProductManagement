@@ -74,9 +74,8 @@ public abstract class Product implements Rateable<Product> {
         if (o instanceof Product) {
 
             Product product = (Product) o;
-
-            if (id != product.id) return false;
-            return name.equals(product.name);
+           return (id == product.id);
+        // if require compare with name   return name.equals(product.name);
         }
         return false;
     }

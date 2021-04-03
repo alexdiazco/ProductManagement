@@ -5,7 +5,7 @@ import labs.pm.data.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.Locale;
+import java.util.function.Predicate;
 
 public class Shop {
 
@@ -51,18 +51,25 @@ public class Shop {
         pm.reviewProduct(106,Rating.THREE_STAR," Chocolate ");
         pm.reviewProduct(106,Rating.ONE_STAR," where is");
         pm.reviewProduct(106,Rating.FIVE_STAR,"It's perfect ");
-        //pm.printProductReport(106);
+        pm.printProductReport(106);
+
+
 
         Comparator<Product> ratingSorter = (p1,p2) -> p2.getRating().ordinal() - p1.getRating().ordinal();
         Comparator<Product> priceSorter = (p1,p2) -> p2.getPrice().compareTo(p1.getPrice());
 
-        pm.printProducts(ratingSorter.thenComparing(priceSorter));
+        Predicate<Product> priceLowerThanTwo = p -> p.getPrice().floatValue() < 2;
+        Predicate<Product> priceHigherThanTwo = p -> p.getPrice().floatValue() > 2;
 
-        pm.printProducts(priceSorter.thenComparing(priceSorter).reversed());
+        pm.printProducts(priceLowerThanTwo, ratingSorter.thenComparing(priceSorter));
 
-        pm.printProducts(priceSorter.reversed().thenComparing(priceSorter).reversed());
+       pm.printProducts( priceHigherThanTwo,priceSorter.thenComparing(priceSorter).reversed());
 
-        pm.printProducts(priceSorter.reversed());
+        pm.printProducts(priceHigherThanTwo,priceSorter.reversed().thenComparing(priceSorter).reversed());
+
+        pm.printProducts(priceHigherThanTwo,priceSorter.reversed());
+
+        pm.getDiscount().forEach( (rating,discount) -> System.out.println(rating+'\t'+discount));
 
 
 

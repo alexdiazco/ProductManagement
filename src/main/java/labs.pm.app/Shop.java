@@ -9,7 +9,7 @@ import java.util.Locale;
 public class Shop {
 
     public static void main(String[] args) {
-        ProductManager pm = new ProductManager(Locale.US);
+        ProductManager pm = new ProductManager("en-GB");
 
         Product p1 = pm.CreateProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
         pm.printProductReport(101);
@@ -21,6 +21,7 @@ public class Shop {
         pm.reviewProduct(101,Rating.FIVE_STAR,"Nice hot cup ");
         pm.printProductReport(101);
 
+        pm.changeLocale("es-ES");
         Product p2 = pm.CreateProduct(102,"Coffee", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
         pm.reviewProduct(102,Rating.THREE_STAR," Coffee ");
         pm.reviewProduct(102,Rating.ONE_STAR," where is");

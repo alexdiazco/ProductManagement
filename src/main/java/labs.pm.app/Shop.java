@@ -9,10 +9,18 @@ import java.util.function.Predicate;
 
 public class Shop {
 
+
+
     public static void main(String[] args) {
         ProductManager pm = new ProductManager("en-GB");
 
-        pm.CreateProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+        pm.parseProduct("D,101,Tea,1.99,0,2019-09-19");
+        //pm.CreateProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+
+        pm.printProductReport(101);
+        pm.parseReview("101,4,Nice hot cup of tea");
+
+/*
         //pm.printProductReport(101);
         pm.reviewProduct(101,Rating.FOUR_STAR,"Nice hot cup of tea");
         pm.reviewProduct(101,Rating.TWO_STAR,"oK");
@@ -72,6 +80,6 @@ public class Shop {
         pm.getDiscount().forEach( (rating,discount) -> System.out.println(rating+'\t'+discount));
 
 
-
+*/
      }
 }
